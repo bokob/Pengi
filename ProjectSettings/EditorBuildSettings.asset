@@ -5,7 +5,52 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainScene.unity
+    guid: 6ba831ce0e719df4da42a95269c280e4
+  - enabled: 1
+    path: Assets/Scenes/JourneyToEarthScene.unity
+    guid: cf5e1b3d2f5c2914ea51163af77c7e0d
+  - enabled: 1
+    path: Assets/Scenes/FallToEarthScene.unity
+    guid: 0c51744a2eca8344fb9d5890b08a51cb
+  - enabled: 1
+    path: Assets/Scenes/LevelSelectionScene.unity
+    guid: 1cbdf584020507f4f8de1d37833fd5bb
+  - enabled: 1
+    path: Assets/Scenes/ForestStageSelectionScene.unity
+    guid: 2e50bc4a5af13b84abbac69c2fb13805
+  - enabled: 1
+    path: Assets/Scenes/ForestPlayScene.unity
+    guid: a6af741496d532d49bfadffe25cda97e
+  - enabled: 1
+    path: Assets/Scenes/DesertStageSelectionScene.unity
+    guid: 1665f3f75d3f1d94eac6b74a66eb9127
+  - enabled: 1
+    path: Assets/Scenes/DesertPlayScene.unity
+    guid: 292506248f67d2c4989eec0931155850
+  - enabled: 1
+    path: Assets/Scenes/OceanStageSelectionScene.unity
+    guid: 164b87023d28eca4e9e0903245b1be60
+  - enabled: 1
+    path: Assets/Scenes/OceanPlayScene.unity
+    guid: b0ec33dd6caeac64389320273acf02b2
+  - enabled: 1
+    path: Assets/Scenes/PastureStageSelectionScene.unity
+    guid: 630a9e17aaa491b449a352db620b91d3
+  - enabled: 1
+    path: Assets/Scenes/PasturePlayScene.unity
+    guid: 2ecacefedc07962429baac4e96333b2f
+  - enabled: 1
+    path: Assets/Scenes/SpaceStageSelectionScene.unity
+    guid: 4cba731a653539f4b900eedcff3a552b
+  - enabled: 1
+    path: Assets/Scenes/SpacePlayScene.unity
+    guid: 19bc939e6f4fe7c47b21bd89dd20652d
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: 16484ae03a4f42548a6adaa31aee50f4
   m_configObjects: {}
