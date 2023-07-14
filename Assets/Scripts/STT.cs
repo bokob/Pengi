@@ -295,8 +295,6 @@ public class STT : MonoBehaviour
             //textObj.text = voiceRecognize.text;
             // Voice Server responded: 인식결과
         }
-
         request.Dispose(); // 메모리 누수 막기 위해
     }
-
 }
