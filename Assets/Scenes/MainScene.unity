@@ -218,8 +218,9 @@ GameObject:
   - component: {fileID: 250741130}
   - component: {fileID: 250741129}
   - component: {fileID: 250741131}
+  - component: {fileID: 250741132}
   m_Layer: 0
-  m_Name: BGMPlayer
+  m_Name: BGMplay
   m_TagString: bgm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +233,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250741128}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 47f2c2b867544b841adf2e1c0ecc37b3, type: 3}
@@ -343,11 +344,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250741128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d960d07b521ad6d43bce319b25573099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &250741132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250741128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4127fcca702494781403613131c3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGMList:
+  - sceneName: ForestPlayScene
+    audio: {fileID: 8300000, guid: 73c6512804b39aa4d824b9413c98b3f9, type: 3}
+  - sceneName: DesertPlayScene
+    audio: {fileID: 8300000, guid: 3f56eb08a26803f4eb7e879ec6dca077, type: 3}
+  - sceneName: OceanPlayScene
+    audio: {fileID: 8300000, guid: 5c73a7480a7369f4088402242c63f89d, type: 3}
+  - sceneName: PasturePlayScene
+    audio: {fileID: 8300000, guid: 292864be58f9de64d9383ff5afe1feb1, type: 3}
+  - sceneName: SpacePlayScene
+    audio: {fileID: 8300000, guid: 7d7678db62b40f4428f40e41680f736d, type: 3}
+  - sceneName: EndingPlayScene
+    audio: {fileID: 8300000, guid: 646f527ba1c104049b8a78d4f1936368, type: 3}
+  defaultBGM: {fileID: 8300000, guid: 47f2c2b867544b841adf2e1c0ecc37b3, type: 3}
 --- !u!1 &281569232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,6 +1548,7 @@ GameObject:
   - component: {fileID: 1639064153}
   - component: {fileID: 1639064152}
   - component: {fileID: 1639064151}
+  - component: {fileID: 1639064154}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1594,6 +1622,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1639064154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639064150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1641947956
 GameObject:
   m_ObjectHideFlags: 0

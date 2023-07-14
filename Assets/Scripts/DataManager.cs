@@ -26,7 +26,7 @@ public class DataManager  : MonoBehaviour
             if (!instance)
             {
                 container = new GameObject();
-                container.name = "DataManager ";
+                container.name = "DataManager";
                 instance = container.AddComponent(typeof(DataManager )) as DataManager ;
                 DontDestroyOnLoad(container);
             }
