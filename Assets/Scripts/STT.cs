@@ -279,7 +279,8 @@ public class STT : MonoBehaviour
         else
         {
             Debug.Log("도착");
-            textObj=GameObject.Find("Canvas").GetComponentInChildren<TextMeshProUGUI>();
+
+            // textObj=GameObject.Find("Canvas").GetComponentInChildren<TextMeshProUGUI>();
             
             // json 형태로 받음 {"text":"인식결과"}
             string message = request.downloadHandler.text;
@@ -290,8 +291,15 @@ public class STT : MonoBehaviour
             else
                 Debug.Log("무언가 들어 있음");
 
-            Debug.Log("음성 인식 결과: " + voiceRecognize.text);
-            textObj.text = voiceRecognize.text;
+            GameObject panelObject = GameObject.Find("RecognitionWord");
+
+            if(panelObject!=null)
+            {
+                textObj = panelObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
+                Debug.Log("음성 인식 결과: " + voiceRecognize.text);
+                textObj.text = voiceRecognize.text;
+            }
             //textObj.text = voiceRecognize.text;
             // Voice Server responded: 인식결과
         }

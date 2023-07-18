@@ -6,8 +6,13 @@ using System.IO; // 저장 등 파일 관리를 위해
 public class GameData // json으로 저장할 클래스
 {
     public bool first;
-    public int level; // 0: 숲, 1: 사막, 2: 바다, 3: 초원, 4: 우주, 각 레벨의 10번째 스테이지를 클리어하면 1 증가, 클리어해야 할 레벨
+    public int level; // 1: 숲, 2: 사막, 3: 바다, 4: 초원, 5: 우주, 각 레벨의 10번째 스테이지를 클리어하면 1 증가, 클리어해야 할 레벨
     public int stage; // 0~9 -> 1~10 스테이지, 클리어해야 할 스테이지
+    public int forestStage; // 숲 스테이지
+    public int desertStage; // 사막 스테이지
+    public int oceanStage; // 해변 스테이지
+    public int pastureStage; // 초원 스테이지
+    public int spaceStage; // 우주 스테이지
     public bool isBGM; // bgm 상태
     public bool isEffectSound; // 효과 상태
     
@@ -26,7 +31,7 @@ public class DataManager  : MonoBehaviour
             if (!instance)
             {
                 container = new GameObject();
-                container.name = "DataManager ";
+                container.name = "DataManager";
                 instance = container.AddComponent(typeof(DataManager )) as DataManager ;
                 DontDestroyOnLoad(container);
             }
@@ -81,8 +86,15 @@ public class DataManager  : MonoBehaviour
         // 새로운 게임 정보 생성 로직 예시
         GameData newGameData = new GameData();
         newGameData.first = true;
-        newGameData.level = 0;
-        newGameData.stage = 0;
+        newGameData.level = 1;
+        newGameData.stage = 1;
+
+        newGameData.forestStage = 1;
+        newGameData.desertStage = 1;
+        newGameData.oceanStage = 1;
+        newGameData.pastureStage = 1;
+        newGameData.spaceStage = 1;
+
         newGameData.isBGM = true; // bgm 켜기
         newGameData.isEffectSound = true; // 효과 켜기
 
@@ -98,7 +110,7 @@ public class DataManager  : MonoBehaviour
     public void UpdateGameSetData(int action)
     {
         // 게임 정보 갱신 로직 예시
-        //gameData.level++;
+        // gameData.level++;
         // 기타 필드 갱신 로직도 여기에 작성
         switch(action)
         {
@@ -107,6 +119,7 @@ public class DataManager  : MonoBehaviour
                 break;
             case 1: // bgm 여부
                 gameData.isBGM = !gameData.isBGM;
+                Debug.Log("isBGM은" + gameData.isBGM);
                 break;
             case 2: // 효과음 여부
                 gameData.isEffectSound = !gameData.isEffectSound;

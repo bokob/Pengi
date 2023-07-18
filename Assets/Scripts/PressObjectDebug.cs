@@ -12,19 +12,24 @@ public class PressObjectDebug : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼 클릭
         {
-            Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Camera fluidCamera = GameObject.Find("FluidCamera").GetComponent<Camera>();
+            Vector2 clickPosition = fluidCamera.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
+
+            // Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
 
             if (hit.collider != null)
             {
                 Debug.Log("클릭한 오브젝트의 이름: " + hit.collider.gameObject.name);
 
                 // 클릭한 블록의 단어에 접근
-                TextMeshPro textComponent = GameObject.Find(hit.collider.gameObject.name).GetComponentInChildren<TextMeshPro>();
+                TextMeshPro textComponent = hit.collider.gameObject.GetComponentInChildren<TextMeshPro>();
 
                 // 클릭한 단어를 나타낼 곳을 찾는다
                 ClickedWord = GameObject.Find("SelectedWordOfBlock").GetComponent<TextMeshProUGUI>();
 
+                Debug.Log(textComponent.text + "를 넣을거에요"); 
                 ClickedWord.text = textComponent.text; // 집어넣는다.
 
                 // 녹음된 것이 기록되는 곳을 찾는다
@@ -35,6 +40,9 @@ public class PressObjectDebug : MonoBehaviour
                 {
                     Destroy(hit.collider.gameObject, 3f); // 3초 뒤에 파괴
                 }
+            }
+            else{
+                Debug.Log("클릭이 안되는데..");
             }
         }
     }
