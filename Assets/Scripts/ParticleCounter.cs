@@ -7,6 +7,9 @@ public class ParticleCounter : MonoBehaviour
     public int targetCount = 10; // 클리어를 위해 필요한 오브젝트의 수
     private int currentCount = 0; // 현재 오브젝트의 수
 
+    public GameObject fluidCamera; 
+    public GameObject successPanel;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("WaterParticle"))
@@ -25,5 +28,7 @@ public class ParticleCounter : MonoBehaviour
     {
         // 게임 클리어 처리 작성
         Debug.Log("게임 클리어!");
+        fluidCamera.SetActive(false);
+        successPanel.SetActive(true);
     }
 }

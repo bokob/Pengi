@@ -12,6 +12,9 @@ public class LevelSelectionSceneGameManager : MonoBehaviour // 레벨 잠금 여
         Debug.Log(btns.Length);
         for(int i=0;i<btns.Length;i++)
         {
+            /* 
+                json에 level 1로 기록되어 있으면  0 < 1 이므로 숲이 열림 이런식으로 작동
+            */
             if(i<=DataManager.Instance.gameData.level) // 열린 레벨이라면
             {
                 Debug.Log(btns[i].name + "열립니다.");

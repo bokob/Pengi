@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 66639226}
   - component: {fileID: 66639225}
   - component: {fileID: 66639224}
-  - component: {fileID: 66639223}
+  - component: {fileID: 66639227}
   m_Layer: 0
-  m_Name: Stage10
+  m_Name: 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,19 +163,6 @@ RectTransform:
   m_AnchoredPosition: {x: 37, y: -1220}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &66639223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66639221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &66639224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 66639223}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 66639227}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -270,6 +257,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66639221}
   m_CullTransparentMesh: 1
+--- !u!114 &66639227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66639221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224663969
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,9 +281,9 @@ GameObject:
   - component: {fileID: 224663974}
   - component: {fileID: 224663973}
   - component: {fileID: 224663972}
-  - component: {fileID: 224663971}
+  - component: {fileID: 224663975}
   m_Layer: 0
-  m_Name: Stage9
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,19 +309,6 @@ RectTransform:
   m_AnchoredPosition: {x: -415, y: -950}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &224663971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224663969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &224663972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,9 +353,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 224663971}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 224663975}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -417,6 +403,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224663969}
   m_CullTransparentMesh: 1
+--- !u!114 &224663975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224663969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &246958309
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,9 +427,9 @@ GameObject:
   - component: {fileID: 246958314}
   - component: {fileID: 246958313}
   - component: {fileID: 246958312}
-  - component: {fileID: 246958311}
+  - component: {fileID: 246958315}
   m_Layer: 0
-  m_Name: Stage1
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,19 +455,6 @@ RectTransform:
   m_AnchoredPosition: {x: -415, y: 1119}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &246958311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246958309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &246958312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,9 +499,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 246958311}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 246958315}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -564,6 +549,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246958309}
   m_CullTransparentMesh: 1
+--- !u!114 &246958315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246958309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &271034514
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,9 +725,9 @@ GameObject:
   - component: {fileID: 691895253}
   - component: {fileID: 691895252}
   - component: {fileID: 691895251}
-  - component: {fileID: 691895250}
+  - component: {fileID: 691895254}
   m_Layer: 0
-  m_Name: Stage2
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,19 +753,6 @@ RectTransform:
   m_AnchoredPosition: {x: 37, y: 950}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &691895250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691895248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &691895251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,9 +797,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 691895250}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 691895254}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -863,6 +847,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691895248}
   m_CullTransparentMesh: 1
+--- !u!114 &691895254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691895248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &779940087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,9 +1103,9 @@ GameObject:
   - component: {fileID: 891435038}
   - component: {fileID: 891435037}
   - component: {fileID: 891435036}
-  - component: {fileID: 891435035}
+  - component: {fileID: 891435039}
   m_Layer: 0
-  m_Name: Stage7
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,19 +1131,6 @@ RectTransform:
   m_AnchoredPosition: {x: 435, y: -322}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &891435035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891435033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &891435036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,9 +1175,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 891435035}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 891435039}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1242,6 +1225,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891435033}
   m_CullTransparentMesh: 1
+--- !u!114 &891435039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891435033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1012558466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,9 +1573,9 @@ GameObject:
   - component: {fileID: 1100963643}
   - component: {fileID: 1100963642}
   - component: {fileID: 1100963641}
-  - component: {fileID: 1100963640}
+  - component: {fileID: 1100963644}
   m_Layer: 0
-  m_Name: Stage6
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1606,19 +1601,6 @@ RectTransform:
   m_AnchoredPosition: {x: 37, y: -92}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1100963640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100963638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &1100963641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1663,9 +1645,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1100963640}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 1100963644}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1713,6 +1695,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100963638}
   m_CullTransparentMesh: 1
+--- !u!114 &1100963644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100963638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1229854859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,9 +1719,9 @@ GameObject:
   - component: {fileID: 1229854864}
   - component: {fileID: 1229854863}
   - component: {fileID: 1229854862}
-  - component: {fileID: 1229854861}
+  - component: {fileID: 1229854865}
   m_Layer: 0
-  m_Name: Stage5
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1753,19 +1747,6 @@ RectTransform:
   m_AnchoredPosition: {x: -415, y: 224}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1229854861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229854859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &1229854862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1810,9 +1791,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1229854861}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 1229854865}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1860,6 +1841,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229854859}
   m_CullTransparentMesh: 1
+--- !u!114 &1229854865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229854859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1357850699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,9 +1966,9 @@ GameObject:
   - component: {fileID: 1783505489}
   - component: {fileID: 1783505488}
   - component: {fileID: 1783505487}
-  - component: {fileID: 1783505486}
+  - component: {fileID: 1783505490}
   m_Layer: 0
-  m_Name: Stage8
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2001,19 +1994,6 @@ RectTransform:
   m_AnchoredPosition: {x: 37, y: -668}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1783505486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783505484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &1783505487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2058,9 +2038,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1783505486}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 1783505490}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2108,6 +2088,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783505484}
   m_CullTransparentMesh: 1
+--- !u!114 &1783505490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783505484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1786796897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,9 +2112,9 @@ GameObject:
   - component: {fileID: 1786796902}
   - component: {fileID: 1786796901}
   - component: {fileID: 1786796900}
-  - component: {fileID: 1786796899}
+  - component: {fileID: 1786796903}
   m_Layer: 0
-  m_Name: Stage4
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2148,19 +2140,6 @@ RectTransform:
   m_AnchoredPosition: {x: 37, y: 421}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1786796899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786796897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &1786796900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2205,9 +2184,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1786796899}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 1786796903}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2255,6 +2234,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786796897}
   m_CullTransparentMesh: 1
+--- !u!114 &1786796903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786796897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2016110010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,7 +2257,7 @@ GameObject:
   - component: {fileID: 2016110012}
   - component: {fileID: 2016110011}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: OceanStageSelectionSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2311,9 +2302,9 @@ GameObject:
   - component: {fileID: 2116566474}
   - component: {fileID: 2116566473}
   - component: {fileID: 2116566472}
-  - component: {fileID: 2116566471}
+  - component: {fileID: 2116566475}
   m_Layer: 0
-  m_Name: Stage3
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2339,19 +2330,6 @@ RectTransform:
   m_AnchoredPosition: {x: 435, y: 691}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2116566471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2116566469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e052c3d5b42ea34fa8aa4bde2b2415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: OceanPlayScene
 --- !u!114 &2116566472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2396,9 +2374,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2116566471}
-        m_TargetAssemblyTypeName: BtnClickNextScene, Assembly-CSharp
-        m_MethodName: SwtichNextScene
+      - m_Target: {fileID: 2116566475}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: SwitchPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2446,3 +2424,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116566469}
   m_CullTransparentMesh: 1
+--- !u!114 &2116566475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116566469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

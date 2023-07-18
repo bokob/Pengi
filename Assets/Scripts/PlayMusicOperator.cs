@@ -19,23 +19,39 @@ public class PlayMusicOperator : MonoBehaviour
     private string currentSceneName = "";
 
     private static PlayMusicOperator instance;
+    private bool isMuted; // 음소거 상태 확인 변수
+    public static PlayMusicOperator Instance
+    {
+        get{return instance;}
+    }
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        // if (instance == null)
+        // {
+        //     instance = this;
+        //     DontDestroyOnLoad(gameObject);
+        // }
+        // else
+        // {
+        //     Destroy(gameObject);
+        //     return;
+        // }
+
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        isMuted = !DataManager.Instance.gameData.isBGM; // 음소거 상태 불러오기
+
         BGM = gameObject.AddComponent<AudioSource>();
         BGM.loop = true;
-        PlayBGMBySceneName();
+        PlayBGMBySceneName(); // 씬에 맞는 bgm 플레이
     }
 
     void OnEnable()
@@ -50,6 +66,12 @@ public class PlayMusicOperator : MonoBehaviour
 
     public void PlayBGMBySceneName()
     {
+        if (isMuted) // 무음
+        {
+            BGM.Pause();
+            return;
+        }
+
         string sceneName = SceneManager.GetActiveScene().name;
 
         // 씬 4에서 다른 BGM으로 변경
@@ -82,10 +104,10 @@ public class PlayMusicOperator : MonoBehaviour
             BGM.clip = GetBGMBySceneName(sceneName);
             BGM.Play();
             currentSceneName = sceneName;
-        }
-        else
+        } /* 추가로 특정 씬에 맞게 재생하게끔 여기에 추가 예정 */
+        else 
         {
-            if(BGM.clip!=null && BGM.clip.Equals(defaultBGM))
+            if(BGM.clip!=null && BGM.clip.Equals(defaultBGM)) // 만약 다른 씬인데 같은 bgm이면 중복재생 방지
                 return;
 
             BGM.clip = defaultBGM;
@@ -111,4 +133,33 @@ public class PlayMusicOperator : MonoBehaviour
 
         return null;
     }
+
+
+    public void StopBGM()
+    {
+        BGM.Stop();
+        currentSceneName = "";
+    }
+
+    // public void ToggleMute()
+    // {
+    //     isMuted = !isMuted;
+
+    //     if (isMuted)
+    //     {
+    //         BGM.Pause();
+    //     }
+    //     else
+    //     {
+    //         if (BGM.clip != null)
+    //         {
+    //             BGM.Play();
+    //         }
+    //         else
+    //         {
+    //             BGM.clip = defaultBGM;
+    //             BGM.Play();
+    //         }
+    //     }
+    // }
 }

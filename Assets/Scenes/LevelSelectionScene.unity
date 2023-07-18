@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 1475959395}
   - component: {fileID: 1475959394}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: LevelSelectionSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1411,6 +1411,7 @@ GameObject:
   - component: {fileID: 1723652253}
   - component: {fileID: 1723652252}
   - component: {fileID: 1723652255}
+  - component: {fileID: 1723652256}
   m_Layer: 0
   m_Name: Forest
   m_TagString: Untagged
@@ -1545,6 +1546,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: ForestStageSelectionScene
+--- !u!114 &1723652256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723652250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb32b63db156284ea33d24829f4d358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870611513
 GameObject:
   m_ObjectHideFlags: 0
