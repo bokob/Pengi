@@ -343,6 +343,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1229e199425623540afb268c293010ef, type: 3}
   - name: BreakBlock
     clip: {fileID: 8300000, guid: 36b42d81101f05a418d25d0ef5487f44, type: 3}
+  - name: Success
+    clip: {fileID: 8300000, guid: 3f7c7e3f643431c4f8c24a6c541e0cca, type: 3}
+  - name: Click
+    clip: {fileID: 8300000, guid: 3b5142ba99b2639498937e37940e8c8f, type: 3}
   musicSource: {fileID: 1595491998}
   sfxSource: {fileID: 1770033939}
   defaultBGM: {fileID: 8300000, guid: 47f2c2b867544b841adf2e1c0ecc37b3, type: 3}
@@ -2714,7 +2718,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

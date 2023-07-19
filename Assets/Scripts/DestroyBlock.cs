@@ -45,11 +45,15 @@ public class DestroyBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(recognitionWord.text == selectedWord.text)
+        if(recognitionWord.text == selectedWord.text && selectedWord.text!="") // 제대로 말 했을 때
             flag = true;
 
         if(flag)
+        {
             RemoveBlock(selectedWord.text);
+            selectedWord.text = "성공"; // 이거 안해주면 중간에 브금 끊김
+            Invoke("ClearText", 2f); // 2초뒤에 인식, 선택 글씨 비우기
+        }
     }
 
     void RemoveBlock(string word)
@@ -69,6 +73,7 @@ public class DestroyBlock : MonoBehaviour
             {
                 Debug.Log(buttonText.text+"가 비활성 됩니다."); // 파괴시키면 오류남
                 button.SetActive(false);
+                SoundManager.Instance.PlaySFX("BreakBlock");
                 break;
             }
             // if (buttonText != null && buttonText.text == targetText)
@@ -77,5 +82,11 @@ public class DestroyBlock : MonoBehaviour
             // }
         }
         flag=false;
+    }
+
+    void ClearText() // 글자 비우기
+    {
+        recognitionWord.text = "";
+        selectedWord.text = "";
     }
 }
