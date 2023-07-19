@@ -8,6 +8,7 @@ public class ParticleCounter : MonoBehaviour
     private int currentCount = 0; // 현재 오브젝트의 수
 
     public GameObject fluidCamera; 
+    public GameObject waterBatch;
     public GameObject successPanel;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +29,10 @@ public class ParticleCounter : MonoBehaviour
     {
         // 게임 클리어 처리 작성
         Debug.Log("게임 클리어!");
+        SoundManager.Instance.ToggleSFX();
         fluidCamera.SetActive(false);
+        waterBatch.SetActive(false);
+        SoundManager.Instance.ToggleSFX();
         successPanel.SetActive(true);
     }
 }
