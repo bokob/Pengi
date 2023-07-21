@@ -15,7 +15,7 @@ public class SwitchRecentStageSelection : MonoBehaviour // 깨야할 스테이�
         {
             /* 엔딩 유무에 따른 분기도 나중에 작성 예정 */
 
-            switch(DataManager.Instance.gameData.level)
+            switch(DataManager.Instance.gameData.recentLevel)
             {
                 case 1:
                     SceneManager.LoadScene("ForestStageSelectionScene");

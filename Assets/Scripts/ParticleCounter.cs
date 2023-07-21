@@ -34,5 +34,6 @@ public class ParticleCounter : MonoBehaviour
         waterBatch.SetActive(false);
         SoundManager.Instance.ToggleSFX();
         successPanel.SetActive(true);
+        DataManager.Instance.UpdateGameClear(LevelAndStageManager.Instance.currentLevel, LevelAndStageManager.Instance.currentStage);
     }
 }
