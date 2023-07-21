@@ -195,6 +195,15 @@ public class DataManager  : MonoBehaviour
             default:
                 break;
         }
+
+        if(level==1 && stage==10) // 1레벨 다 깼으면
+            gameData.recentLevel = 2 ;
+        else if(level==2 && stage==10)
+            gameData.recentLevel = 3;
+        else if(level==3 && stage==10)
+            gameData.recentLevel = 4;
+        else if(level==3 && stage==10)
+            gameData.recentLevel = 5;
         SaveGameData();
     }
 
