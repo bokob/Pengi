@@ -45,37 +45,38 @@ public class DestroyBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(recognitionWord.text == selectedWord.text)
+        if(recognitionWord.text == selectedWord.text && selectedWord.text!="") // 제대로 말 했을 때
             flag = true;
 
         if(flag)
-            RemoveBlock(selectedWord.text);
+        {
+            // RemoveBlock(selectedWord.text);
+            RemoveBlock();
+            selectedWord.text = "성공"; // 이거 안해주면 중간에 브금 끊김
+            Invoke("ClearText", 2f); // 2초뒤에 인식, 선택 글씨 비우기
+            flag=false;
+        }
     }
 
-    void RemoveBlock(string word)
+    void RemoveBlock()
     {
-        foreach (GameObject button in buttons)
+        GameObject[] buttonArray = BlockQueue.Instance.buttonQueue.ToArray(); // 큐에 넣어놓은 버튼들을 인덱스로 접근하기 위해 배열로 바꾼다.
+
+        Debug.Log("큐에 들어있는 버튼들 비활성화 시작!");
+        for(int i=0;i<buttonArray.Length;i++) // 전부 비활성화
         {
-            TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-
-            // TextMeshProUGUI[] textComponents = button.GetComponentsInChildren<TextMeshProUGUI>();
-
-            // foreach (TextMeshProUGUI textComponent in textComponents)
-            // {
-            //     Debug.Log("Button Text: " + textComponent.text);
-            // }
-
-            if(buttonText.text == word) 
-            {
-                Debug.Log(buttonText.text+"가 비활성 됩니다."); // 파괴시키면 오류남
-                button.SetActive(false);
-                break;
-            }
-            // if (buttonText != null && buttonText.text == targetText)
-            // {
-            //     Destroy(button.gameObject);
-            // }
+            Debug.Log(buttonArray[i].name + " 비활성화");
+            buttonArray[i].SetActive(false);
         }
-        flag=false;
+        Debug.Log("큐 비활성화 종료!");
+        BlockQueue.Instance.DequeueAllButton(); // 큐 비우기
+
+        SoundManager.Instance.PlaySFX("BreakBlock"); // '풍덩' 효과음
+    }
+
+    void ClearText() // 글자 비우기
+    {
+        recognitionWord.text = "";
+        selectedWord.text = "";
     }
 }

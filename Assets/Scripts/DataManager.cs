@@ -6,17 +6,21 @@ using System.IO; // 저장 등 파일 관리를 위해
 public class GameData // json으로 저장할 클래스
 {
     public bool first;
-    public int level; // 1: 숲, 2: 사막, 3: 바다, 4: 초원, 5: 우주, 각 레벨의 10번째 스테이지를 클리어하면 1 증가, 클리어해야 할 레벨
-    public int stage; // 0~9 -> 1~10 스테이지, 클리어해야 할 스테이지
+    public int recentLevel; // 1: 숲, 2: 사막, 3: 바다, 4: 초원, 5: 우주, 각 레벨의 10번째 스테이지를 클리어하면 1 증가, 클리어해야 할 레벨
+    public int recentStage; // 0~9 -> 1~10 스테이지, 클리어해야 할 스테이지
     public int forestStage; // 숲 스테이지
     public int desertStage; // 사막 스테이지
     public int oceanStage; // 해변 스테이지
     public int pastureStage; // 초원 스테이지
     public int spaceStage; // 우주 스테이지
-    public bool isBGM; // bgm 상태
-    public bool isEffectSound; // 효과 상태
+    public float bgmVolume; // bgm 상태
+    public float sfxVolume; // 효과 상태
     
-    public bool[] isClear; // 길이가 50, 5레벨 10 스테이지의 클리어 여부 저장
+    public bool[] forestClear; // 숲 클리어
+    public bool[] desertClear; // 사막 클리어
+    public bool[] oceanClear; // 해변 클리어
+    public bool[] pastureClear; // 초원 클리어
+    public bool[] spaceClear; // 우주 클리어
 }
 
 public class DataManager  : MonoBehaviour
@@ -63,6 +67,8 @@ public class DataManager  : MonoBehaviour
         {
             string jsonData = File.ReadAllText(filePath);
             gameData = JsonUtility.FromJson<GameData>(jsonData);
+            SoundManager.Instance.musicSource.volume = gameData.bgmVolume;
+            SoundManager.Instance.sfxSource.volume = gameData.sfxVolume;
         }
         else // 저장된 파일이 없는 경우, 새로운 게임 정보 생성 후 저장
         {
@@ -86,8 +92,8 @@ public class DataManager  : MonoBehaviour
         // 새로운 게임 정보 생성 로직 예시
         GameData newGameData = new GameData();
         newGameData.first = true;
-        newGameData.level = 1;
-        newGameData.stage = 1;
+        newGameData.recentLevel = 1;
+        newGameData.recentStage = 1;
 
         newGameData.forestStage = 1;
         newGameData.desertStage = 1;
@@ -95,15 +101,23 @@ public class DataManager  : MonoBehaviour
         newGameData.pastureStage = 1;
         newGameData.spaceStage = 1;
 
-        newGameData.isBGM = true; // bgm 켜기
-        newGameData.isEffectSound = true; // 효과 켜기
+        newGameData.bgmVolume = 1f; // bgm 크기 설정
+        newGameData.sfxVolume = 1f; // 효과음 설정
 
-        newGameData.isClear = new bool[50];
-        for(int i=0;i<50;i++)
-            newGameData.isClear[i]=false;
-
+        newGameData.forestClear = new bool[10];
+        newGameData.desertClear = new bool[10];
+        newGameData.oceanClear = new bool[10];
+        newGameData.pastureClear = new bool[10];
+        newGameData.spaceClear = new bool[10];
+        for(int i=0;i<10;i++) // 스테이지 클리어 여부 초기화
+        {
+            newGameData.forestClear[i]=false;
+            newGameData.desertClear[i]=false;
+            newGameData.oceanClear[i]=false;
+            newGameData.pastureClear[i]=false;
+            newGameData.spaceClear[i]=false;
+        }
         // 추가로 업데이트 할 필드 집어넣으면 됨
-
         return newGameData;
     }
 
@@ -114,15 +128,16 @@ public class DataManager  : MonoBehaviour
         // 기타 필드 갱신 로직도 여기에 작성
         switch(action)
         {
-            case 0: // 최초 플레이 시에만 오프닝
+            case 0: // 최초 플레이 시에만 다음 플레이에 오프닝 장면 보여줄건지
                 gameData.first=false;
                 break;
-            case 1: // bgm 여부
-                gameData.isBGM = !gameData.isBGM;
-                Debug.Log("isBGM은" + gameData.isBGM);
+            case 1: // bgm 소리 크기
+                gameData.bgmVolume = SoundManager.Instance.musicSource.volume;
+                Debug.Log("브금 크기가 " + gameData.bgmVolume + " 로 저장됩니다.");
                 break;
-            case 2: // 효과음 여부
-                gameData.isEffectSound = !gameData.isEffectSound;
+            case 2: // 효과음 소리 크기
+                gameData.sfxVolume = SoundManager.Instance.sfxSource.volume;
+                Debug.Log("효과음 크기가 " + gameData.sfxVolume + " 로 저장됩니다.");
                 break;
             default:
                 break;
@@ -139,7 +154,57 @@ public class DataManager  : MonoBehaviour
 
     public void UpdateGameClear(int level, int stage) // 클리어 여부 업데이트
     {
-        
+        switch(level)
+        {
+            case 1:
+                // 안깼고 깨야할 스테이지와 스테이지 잠금해제에 쓰인 스테이지와 같다면
+                if(gameData.forestClear[stage-1] == false && gameData.forestStage == stage)
+                {
+                    gameData.forestClear[stage-1] = true;
+                    gameData.forestStage+=1;
+                }
+                break;
+            case 2:
+                if(gameData.desertClear[stage-1] == false && gameData.desertStage == stage)
+                {
+                    gameData.desertClear[stage-1] = true;
+                    gameData.desertStage+=1;
+                }
+                break;
+            case 3:
+                if(gameData.oceanClear[stage-1] == false && gameData.oceanStage == stage)
+                {
+                    gameData.oceanClear[stage-1] = true;
+                    gameData.oceanStage+=1;
+                }
+                break;
+            case 4:
+                if(gameData.pastureClear[stage-1] == false && gameData.pastureStage == stage)
+                {
+                    gameData.pastureClear[stage-1] = true;
+                    gameData.pastureStage+=1;
+                }
+                break;
+            case 5:
+                if(gameData.spaceClear[stage-1] == false && gameData.spaceStage == stage)
+                {
+                    gameData.spaceClear[stage-1] = true;
+                    gameData.spaceStage+=1;
+                }
+                break;
+            default:
+                break;
+        }
+
+        if(level==1 && stage==10) // 1레벨 다 깼으면
+            gameData.recentLevel = 2 ;
+        else if(level==2 && stage==10)
+            gameData.recentLevel = 3;
+        else if(level==3 && stage==10)
+            gameData.recentLevel = 4;
+        else if(level==3 && stage==10)
+            gameData.recentLevel = 5;
+        SaveGameData();
     }
 
 

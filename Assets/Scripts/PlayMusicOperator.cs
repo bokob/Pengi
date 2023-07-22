@@ -47,7 +47,7 @@ public class PlayMusicOperator : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        isMuted = !DataManager.Instance.gameData.isBGM; // 음소거 상태 불러오기
+        //isMuted = !DataManager.Instance.gameData.isBGM; // 음소거 상태 불러오기
 
         BGM = gameObject.AddComponent<AudioSource>();
         BGM.loop = true;
