@@ -35,9 +35,10 @@ public class ClickedBlockWord : MonoBehaviour
 
     public void ShowSelectedBlockText()
     {
-
         Debug.Log(buttonText.text + "를 넣을거에요"); 
-        WriteSelectedWord.text = buttonText.text;
+        WriteSelectedWord.text += buttonText.text;
+
+        BlockQueue.Instance.EnqueueButton(gameObject); // 큐에 집어넣는다.
 
         // WriteSelectedWord.text = buttonText.text; // 집어넣는다.
 
@@ -49,5 +50,11 @@ public class ClickedBlockWord : MonoBehaviour
         // {
         //     Destroy(hit.collider.gameObject, 3f); // 3초 뒤에 파괴
         // }
+    }
+
+    public void DeleteSelectedBlockText() // 단어들이 쓰여진 곳 지워버리기
+    {
+        WriteSelectedWord.text = "";
+        BlockQueue.Instance.DequeueAllButton();
     }
 }
