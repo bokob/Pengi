@@ -5,7 +5,8 @@ using System.IO; // 저장 등 파일 관리를 위해
 
 public class GameData // json으로 저장할 클래스
 {
-    public bool first;
+    public bool first; // 오프닝 보여줄건지 체크 true: 보여줌, false: 안보여줌
+    public bool last; // 엔딩 보여줄건지 체크 true: 보여줌, false: 안보여줌
     public int recentLevel; // 1: 숲, 2: 사막, 3: 바다, 4: 초원, 5: 우주, 각 레벨의 10번째 스테이지를 클리어하면 1 증가, 클리어해야 할 레벨
     public int recentStage; // 0~9 -> 1~10 스테이지, 클리어해야 할 스테이지
     public int forestStage; // 숲 스테이지
@@ -92,6 +93,7 @@ public class DataManager  : MonoBehaviour
         // 새로운 게임 정보 생성 로직 예시
         GameData newGameData = new GameData();
         newGameData.first = true;
+        newGameData.last = true;
         newGameData.recentLevel = 1;
         newGameData.recentStage = 1;
 
@@ -138,6 +140,9 @@ public class DataManager  : MonoBehaviour
             case 2: // 효과음 소리 크기
                 gameData.sfxVolume = SoundManager.Instance.sfxSource.volume;
                 Debug.Log("효과음 크기가 " + gameData.sfxVolume + " 로 저장됩니다.");
+                break;
+            case 3: // 최초 엔딩 시에만 보여주게끔
+                gameData.last = false;
                 break;
             default:
                 break;
@@ -198,16 +203,14 @@ public class DataManager  : MonoBehaviour
 
         if(level==1 && stage==10) // 1레벨 다 깼으면
             gameData.recentLevel = 2 ;
-        else if(level==2 && stage==10)
+        if(level==2 && stage==10)
             gameData.recentLevel = 3;
-        else if(level==3 && stage==10)
+        if(level==3 && stage==10)
             gameData.recentLevel = 4;
-        else if(level==3 && stage==10)
+        if(level==3 && stage==10)
             gameData.recentLevel = 5;
         SaveGameData();
     }
-
-
 
     // private void OnApplicationQuit() // 게임 종료 시
     // {
