@@ -4273,7 +4273,7 @@ MonoBehaviour:
   targetCount: 80
   fluidCamera: {fileID: 434875810}
   waterBatch: {fileID: 868409863}
-  successPanel: {fileID: 0}
+  successPanel: {fileID: 1973385038}
 --- !u!1001 &713086501
 PrefabInstance:
   m_ObjectHideFlags: 0

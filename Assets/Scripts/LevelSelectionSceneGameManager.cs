@@ -58,7 +58,7 @@ public class LevelSelectionSceneGameManager : MonoBehaviour // 레벨 잠금 여
         for(int i=0;i<10;i++) // 초원 클리어 조사
         {
             if(DataManager.Instance.gameData.pastureClear[i])
-                oceanClearCnt++;
+                pastureClearCnt++;
         }
         if(pastureClearCnt<10) // 초원이 전부 클리어 되지 않았다면  
         {
