@@ -23,6 +23,8 @@ public class StageButton : MonoBehaviour
 
         string sceneName = SceneManager.GetActiveScene().name; // 현재 씬 이름 가져오기
         
+        SoundManager.Instance.PlaySFX("Click");
+
         if(sceneName == "ForestStageSelectionScene")
         {
             SceneManager.LoadScene("ForestPlayScene");

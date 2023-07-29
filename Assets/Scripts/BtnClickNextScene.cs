@@ -23,6 +23,7 @@ public class BtnClickNextScene : MonoBehaviour // 버튼 누르면 다음 씬으
         else // 레벨 선택 화면으로 이동
         {
             SceneManager.LoadScene(SceneName);
+            SoundManager.Instance.PlaySFX("Click");
         }
     }
 }
