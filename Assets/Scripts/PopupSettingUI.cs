@@ -10,6 +10,7 @@ public class PopupSettingUI : MonoBehaviour
     public void Popup()
     {
         obj.SetActive(true);
+        SoundManager.Instance.PlaySFX("Click");
     }
 
     public void Exit()

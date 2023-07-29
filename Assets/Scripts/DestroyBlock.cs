@@ -51,10 +51,23 @@ public class DestroyBlock : MonoBehaviour
         if(flag)
         {
             // RemoveBlock(selectedWord.text);
+
+            /*
+                정답쪽에 넣어야 됨
+            */
+
+
             RemoveBlock();
             selectedWord.text = "성공"; // 이거 안해주면 중간에 브금 끊김
             Invoke("ClearText", 2f); // 2초뒤에 인식, 선택 글씨 비우기
             flag=false;
+        }
+        else // 실패
+        {
+                /*
+                    공백이면 담지 않고
+                    뭐라도 들어있는데 틀린거면 담는다.
+                */
         }
     }
 
