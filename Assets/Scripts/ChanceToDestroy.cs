@@ -15,7 +15,6 @@ public class ChanceToDestroy : MonoBehaviour
 
         Debug.Log(recognitionWord.name);
 
-
         string sceneName = SceneManager.GetActiveScene().name;
 
         if(sceneName == "ForestPlayScene" || sceneName == "DesertPlayScene")
