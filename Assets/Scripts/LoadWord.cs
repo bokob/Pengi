@@ -3,16 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[System.Serializable]
+public class ReceiveWordData
+{
+    public int status;
+    public bool success;
+    public string message;
+    public Data data;
+    public List<PuzzleRow>result;
+}
+
+[System.Serializable]
+public class Data
+{
+    public List<Answer> one_word;
+    public List<Answer> two_word;
+    public List<Answer> three_word;
+    public List<Answer> four_word;
+}
+
+[System.Serializable]
+public class Answer
+{
+    public int w_id;
+    public string w_name;
+    public string font_color;
+}
+
+[System.Serializable]
+public class PuzzleRow
+{
+    List<PuzzleBlockWord> row;
+}
+
+[System.Serializable]
+public class PuzzleBlockWord
+{
+    public string word;
+    public string color;
+}
+
+
 public class LoadWord : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     string url = "http://43.202.24.176:8080//api/wordlist";
     int level;
-    void Start()
-    {
-        level = LevelAndStageManager.Instance.currentLevel;
 
+    public static LoadWord Instance;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
+        level = LevelAndStageManager.Instance.currentLevel;
         StartCoroutine(LoadPuzzleWord(url, level));
     }
 
@@ -32,6 +85,11 @@ public class LoadWord : MonoBehaviour
         else
         {
             Debug.Log(request.downloadHandler.text);
+
+            // ReceiveWordData tmp = JsonUtility.FromJson<ReceiveWordData>(request.downloadHandler.text);
+
+            // Debug.Log("과연 될까요?");
+            // Debug.Log(tmp);
         }
     }
 }
