@@ -81,6 +81,9 @@ public class LoadWord_F : MonoBehaviour
         {
             TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
 
+            if(wordListToPlace.Count == idx)
+                break;
+
             buttonText.text = wordListToPlace[idx].word;
             SetTextColor(buttonText, wordListToPlace[idx].color);
             idx++;

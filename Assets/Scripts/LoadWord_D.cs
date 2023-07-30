@@ -82,6 +82,9 @@ public class LoadWord_D : MonoBehaviour
         {
             TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
 
+            if(wordListToPlace.Count == idx)
+                break;
+
             buttonText.text = wordListToPlace[idx].word;
             SetTextColor(buttonText, wordListToPlace[idx].color);
             idx++;
@@ -94,10 +97,6 @@ public class LoadWord_D : MonoBehaviour
         if (ColorUtility.TryParseHtmlString(colorCode, out color))
         {
             buttonText.color = color;
-        }
-        else
-        {
-            Debug.LogError("잘못된 색상 코드입니다.");
         }
     }
 
