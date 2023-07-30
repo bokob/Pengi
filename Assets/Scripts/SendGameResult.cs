@@ -37,17 +37,8 @@ public class SendGameResult : MonoBehaviour
     CorrectWord correctWord;
     WrongWord wrongWord;
 
-    private void Awake()
+    void Start()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         gameResult = new GameResult();
         gameResult.correct_words = new List<CorrectWord>();
         gameResult.wrong_words = new List<WrongWord>();
@@ -67,26 +58,32 @@ public class SendGameResult : MonoBehaviour
 
     public void Send()
     {
-        gameResult.user_id=10;
-        gameResult.chance=1;
-        gameResult.completed="1";
+        /*
+            여기 써야할 코드는 
+            틀린 단어와 맞았던 단어 담은 것을 
+            보내야 됨
+        */
 
-        correctWord.word_id=1;
-        correctWord.word_name="ㅋㅋ";
+        // gameResult.user_id=10;
+        // gameResult.chance=1;
+        // gameResult.completed="1";
 
-        wrongWord.word_id = 2;
-        wrongWord.word_name="ㅋㅋㅋ";
-        wrongWord.spell_name="ㅎㅎㅎ";
+        // correctWord.word_id=1;
+        // correctWord.word_name="ㅋㅋ";
 
-        gameResult.correct_words.Add(correctWord);
-        gameResult.wrong_words.Add(wrongWord);
-        string jsonData = JsonUtility.ToJson(gameResult,true);
+        // wrongWord.word_id = 2;
+        // wrongWord.word_name="ㅋㅋㅋ";
+        // wrongWord.spell_name="ㅎㅎㅎ";
 
-        Debug.Log("게임결과 보내기 시작");
-        Debug.Log(jsonData);
-        Debug.Log("이러한 내용을 보낼겁니다.");
+        // gameResult.correct_words.Add(correctWord);
+        // gameResult.wrong_words.Add(wrongWord);
+        // string jsonData = JsonUtility.ToJson(gameResult,true);
 
-       StartCoroutine(Upload("http://43.202.24.176:8080/api/game", jsonData));
+    //     Debug.Log("게임결과 보내기 시작");
+    //     Debug.Log(jsonData);
+    //     Debug.Log("이러한 내용을 보낼겁니다.");
+
+    //    StartCoroutine(Upload("http://43.202.24.176:8080/api/game", jsonData));
     }
 
     IEnumerator Upload(string url, string json)

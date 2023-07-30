@@ -11,6 +11,7 @@ public class SuccessParticleCounter : MonoBehaviour
     public GameObject fluidCamera; 
     public GameObject waterBatch;
     public GameObject panel;
+    public GameObject allParticleCountZone;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,6 +32,7 @@ public class SuccessParticleCounter : MonoBehaviour
         Debug.Log("성공!");
         SoundManager.Instance.ToggleSFX();
         fluidCamera.SetActive(false);
+        allParticleCountZone.SetActive(false);
         waterBatch.SetActive(false);
         SoundManager.Instance.ToggleSFX();
         panel.SetActive(true);

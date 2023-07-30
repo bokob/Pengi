@@ -54,7 +54,13 @@ public class DestroyBlock : MonoBehaviour
 
             /*
                 정답쪽에 넣어야 됨
+
+                CorrectWord 를 매번 '새로' 만들어서
+                담은 다음에 
+                AddCoreectWord()로 추가해줘야 한다.
+
             */
+
 
 
             RemoveBlock();
@@ -67,6 +73,9 @@ public class DestroyBlock : MonoBehaviour
                 /*
                     공백이면 담지 않고
                     뭐라도 들어있는데 틀린거면 담는다.
+
+                    
+
                 */
         }
     }

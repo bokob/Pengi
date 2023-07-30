@@ -10,7 +10,7 @@ public class ReceiveWordData
     public bool success;
     public string message;
     public Data data;
-    public List<PuzzleRow>result;
+    public List<List<PuzzleBlockWord>> result;
 }
 
 [System.Serializable]
@@ -31,18 +31,11 @@ public class Answer
 }
 
 [System.Serializable]
-public class PuzzleRow
-{
-    List<PuzzleBlockWord> row;
-}
-
-[System.Serializable]
 public class PuzzleBlockWord
 {
     public string word;
     public string color;
 }
-
 
 public class LoadWord : MonoBehaviour
 {
@@ -52,22 +45,28 @@ public class LoadWord : MonoBehaviour
 
     public static LoadWord Instance;
 
-    private void Awake()
+    void Start()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-
         level = LevelAndStageManager.Instance.currentLevel;
         StartCoroutine(LoadPuzzleWord(url, level));
     }
+
+    // private void Awake()
+    // {
+    //     if(Instance == null)
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+
+
+    //     level = LevelAndStageManager.Instance.currentLevel;
+    //     StartCoroutine(LoadPuzzleWord(url, level));
+    // }
 
     IEnumerator LoadPuzzleWord(string url, int level) // 맵에 배치할 단어를 위한 Get 요청
     {
@@ -86,10 +85,11 @@ public class LoadWord : MonoBehaviour
         {
             Debug.Log(request.downloadHandler.text);
 
-            // ReceiveWordData tmp = JsonUtility.FromJson<ReceiveWordData>(request.downloadHandler.text);
+            ReceiveWordData tmp = JsonUtility.FromJson<ReceiveWordData>(request.downloadHandler.text);
 
-            // Debug.Log("과연 될까요?");
-            // Debug.Log(tmp);
+            Debug.Log("과연 될까요?");
+
+            Debug.Log(tmp.data.one_word[0].w_id);
         }
     }
 }
