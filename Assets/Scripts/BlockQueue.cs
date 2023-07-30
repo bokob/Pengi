@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+블록 파괴, 선택 같은 행위 때문에 쓸 스크립트
+*/
+
 public class BlockQueue : MonoBehaviour
 {
     // 싱글톤으로 만들기

@@ -475,4 +475,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8821521cebb239d49a8a82c369aca204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: FallToEarthScene1
+  SceneName: FallToEarthScene

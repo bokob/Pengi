@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DestroyBlock : MonoBehaviour
 {
@@ -60,8 +61,10 @@ public class DestroyBlock : MonoBehaviour
                 AddCoreectWord()로 추가해줘야 한다.
 
             */
-
-
+            
+            CorrectWord newCorrectWord = new CorrectWord();
+            newCorrectWord.word_id=123;
+            newCorrectWord.word_name=selectedWord.text;
 
             RemoveBlock();
             selectedWord.text = "성공"; // 이거 안해주면 중간에 브금 끊김
@@ -70,13 +73,18 @@ public class DestroyBlock : MonoBehaviour
         }
         else // 실패
         {
-                /*
-                    공백이면 담지 않고
-                    뭐라도 들어있는데 틀린거면 담는다.
-
-                    
-
-                */
+            if(recognitionWord.text != "Start!")
+            {
+                if(recognitionWord.text=="") // 공백이면 담지 않고
+                    return;
+                else // 말한게 있으면 담는다.
+                {
+                    WrongWord newWrongWord = new WrongWord();
+                    newWrongWord.word_id=123;
+                    newWrongWord.word_name=selectedWord.text; // 선택한 단어(정답)
+                    newWrongWord.spell_name=recognitionWord.text; // 틀리게 발음한 것
+                }
+            }
         }
     }
 
