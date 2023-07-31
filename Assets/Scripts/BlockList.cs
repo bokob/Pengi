@@ -16,24 +16,54 @@ public class BlockList : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
     public List<GameObject> buttonList = new List<GameObject>();
+    public List<string> buttonNameList = new List<string>();
 
 
     public void AddButton(GameObject button) // 리스트 요소 집어넣기
+    {   
+
+        if (!buttonList.Contains(button))
+        {
+            buttonList.Add(button);
+        }
+
+        if(!buttonNameList.Contains(button.name))
+        {
+            buttonNameList.Add(button.name);
+        }
+
+        foreach(var name in buttonNameList)
+        {
+            Debug.Log("이름리스트에 " + name + " 들어있는뎁쇼");
+        }
+
+
+    }
+
+    public void PopButton()
     {
-        buttonList.Add(button);
+        if (buttonList.Count > 0)
+        {
+            int lastIndex = buttonList.Count - 1;
+            buttonList.RemoveAt(lastIndex); // 마지막 요소를 제거
+
+            int lastIdx = buttonNameList.Count-1;
+            buttonNameList.RemoveAt(lastIdx);
+        }
+        else
+        {
+            buttonList.Clear();
+            buttonNameList.Clear();
+        }
     }
 
     public void PopAllButton() // 큐의 모든 요소 삭제
     {
         buttonList.Clear();
+        buttonNameList.Clear();
     }
 }
