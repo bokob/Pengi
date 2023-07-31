@@ -50,5 +50,6 @@ public class FailParticleCounter : MonoBehaviour
         waterBatch.SetActive(false);
         SoundManager.Instance.ToggleSFX();
         panel.SetActive(true);
+        STT.Instance.Send();
     }
 }

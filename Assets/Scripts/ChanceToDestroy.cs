@@ -40,7 +40,7 @@ public class ChanceToDestroy : MonoBehaviour
 
     public void Chance()
     {
-        GameObject[] buttonArray = BlockQueue.Instance.buttonQueue.ToArray(); // 큐에 넣어놓은 버튼들을 인덱스로 접근하기 위해 배열로 바꾼다.
+        GameObject[] buttonArray = BlockList.Instance.buttonList.ToArray(); // 리스트에 넣어놓은 버튼들을 인덱스로 접근하기 위해 배열로 바꾼다.
 
         Debug.Log("큐에 들어있는 버튼들 비활성화 시작!");
         for(int i=0;i<buttonArray.Length;i++) // 전부 비활성화
@@ -49,7 +49,7 @@ public class ChanceToDestroy : MonoBehaviour
             buttonArray[i].SetActive(false);
         }
         Debug.Log("큐 비활성화 종료!");
-        BlockQueue.Instance.DequeueAllButton(); // 큐 비우기
+        BlockList.Instance.PopAllButton(); // 리스트 비우기
 
         showChanceCount.text = (int.Parse(showChanceCount.text)-1).ToString();
 

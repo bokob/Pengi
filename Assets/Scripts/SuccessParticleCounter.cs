@@ -37,5 +37,6 @@ public class SuccessParticleCounter : MonoBehaviour
         SoundManager.Instance.ToggleSFX();
         panel.SetActive(true);
         DataManager.Instance.UpdateGameClear(LevelAndStageManager.Instance.currentLevel, LevelAndStageManager.Instance.currentStage);
+        STT.Instance.Send();
     }
 }

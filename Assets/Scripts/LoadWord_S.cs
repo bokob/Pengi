@@ -72,6 +72,12 @@ public class LoadWord_S : MonoBehaviour
         buttons = GameObject.FindGameObjectsWithTag("Block");
 
         level = LevelAndStageManager.Instance.currentLevel;
+
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+
         answerList = new List<Answer_S>();
         wordListToPlace = new List<PuzzleBlockWord_S>();
         yield return StartCoroutine(LoadPuzzleWord(url, level));

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ReceiveWordData_D
@@ -69,6 +70,12 @@ public class LoadWord_D : MonoBehaviour
         buttons = GameObject.FindGameObjectsWithTag("Block");
 
         level = LevelAndStageManager.Instance.currentLevel;
+
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+
         answerList = new List<Answer_D>();
         wordListToPlace = new List<PuzzleBlockWord_D>();
         yield return StartCoroutine(LoadPuzzleWord(url, level));
