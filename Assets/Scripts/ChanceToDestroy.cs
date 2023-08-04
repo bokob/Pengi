@@ -15,7 +15,6 @@ public class ChanceToDestroy : MonoBehaviour
 
         Debug.Log(recognitionWord.name);
 
-
         string sceneName = SceneManager.GetActiveScene().name;
 
         if(sceneName == "ForestPlayScene" || sceneName == "DesertPlayScene")
@@ -26,7 +25,7 @@ public class ChanceToDestroy : MonoBehaviour
         {
             chanceCount = 2;
         }
-        else if(sceneName == "SpacePlayScene")
+        else if(sceneName == "SpacePlayScene" || sceneName == "WrongPlayScene")
         {
             chanceCount = 3;
         }
@@ -39,18 +38,33 @@ public class ChanceToDestroy : MonoBehaviour
             gameObject.GetComponent<Button>().interactable=false;
     }
 
-    public void Chance()
+    public void Chance() // 찬스는 틀린걸로 취급
     {
-        GameObject[] buttonArray = BlockQueue.Instance.buttonQueue.ToArray(); // 큐에 넣어놓은 버튼들을 인덱스로 접근하기 위해 배열로 바꾼다.
+        GameObject[] buttonArray = BlockList.Instance.buttonList.ToArray(); // 리스트에 넣어놓은 버튼들을 인덱스로 접근하기 위해 배열로 바꾼다.
 
-        Debug.Log("큐에 들어있는 버튼들 비활성화 시작!");
+        Debug.Log("리스트에 들어있는 버튼들 비활성화 시작!");
         for(int i=0;i<buttonArray.Length;i++) // 전부 비활성화
         {
             Debug.Log(buttonArray[i].name + " 비활성화");
             buttonArray[i].SetActive(false);
         }
-        Debug.Log("큐 비활성화 종료!");
-        BlockQueue.Instance.DequeueAllButton(); // 큐 비우기
+        Debug.Log("리스트 비활성화 종료!");
+
+        //   ex) 원래 "수박"인데 "박수"로 고르고 찬스를 썼을 때 "박수"가 있는지 파악하는 것
+        int wordID = STT.Instance.GetWordId(selectedWord.text); 
+
+        if(wordID == -1) return;
+
+        WrongWord newWrongWord = new WrongWord();
+        newWrongWord.word_id = wordID;
+        newWrongWord.word_name = selectedWord.text;
+        newWrongWord.spell_name = "찬스를사용했습니다";
+        STT.Instance.AddWrongWord(newWrongWord);
+
+        BlockList.Instance.PopAllButton(); // 리스트 비우기
+        selectedWord.text="";
+        
+        STT.Instance.gameResult.chance++; // 찬스 사용 횟수 증가
 
         showChanceCount.text = (int.Parse(showChanceCount.text)-1).ToString();
 

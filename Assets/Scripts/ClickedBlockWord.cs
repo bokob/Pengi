@@ -35,26 +35,46 @@ public class ClickedBlockWord : MonoBehaviour
 
     public void ShowSelectedBlockText()
     {
-        Debug.Log(buttonText.text + "를 넣을거에요"); 
-        WriteSelectedWord.text += buttonText.text;
 
-        BlockQueue.Instance.EnqueueButton(gameObject); // 큐에 집어넣는다.
+        // Debug.Log(buttonText.text + "를 넣을거에요"); 
+        // WriteSelectedWord.text += buttonText.text;
 
-        // WriteSelectedWord.text = buttonText.text; // 집어넣는다.
+        // BlockList.Instance.AddButton(gameObject); //  집어넣는다.
+    
+        if(WriteSelectedWord.text == "") // 공백이라면
+        {
+            if(buttonText.text == "") // 버튼 안의 글자가 공백이면 담지 않음
+                return;
 
-        // // 녹음된 것이 기록되는 곳을 찾는다
-        // recordTextObj = GameObject.Find("Canvas").GetComponentInChildren<TextMeshProUGUI>();
-
-        // Debug.Log("녹음된 결과: " + recordTextObj.text + " " + "클릭한 단어: " + textComponent.text);
-        // if (recordTextObj.text == ClickedWord.text) // 선택한 단어와 인식된 발음이 일치하면
-        // {
-        //     Destroy(hit.collider.gameObject, 3f); // 3초 뒤에 파괴
-        // }
+            Debug.Log(buttonText.text + "를 넣을거에요"); 
+            BlockList.Instance.AddButton(gameObject); // 리스트에 집어넣는다.
+            WriteSelectedWord.text += buttonText.text;
+        }
+        else if (WriteSelectedWord.text != "") // 공백이 아니면 무언가 들어가 있으니까 그 글자색을 기준으로 추가되어야 함
+        {
+            GameObject firstButton = BlockList.Instance.buttonList[0]; // 맨앞의 버튼에 접근
+            TextMeshProUGUI textMeshPro = firstButton.GetComponentInChildren<TextMeshProUGUI>();
+            Color textColor = textMeshPro.color; // 색을 알아낸다.
+            
+            if(textColor == gameObject.GetComponentInChildren<TextMeshProUGUI>().color) // 같은 색이면
+            {
+                Debug.Log("같은 색이네?");
+                if (!BlockList.Instance.buttonNameList.Contains(gameObject.name)) // 중복되지 않았으면
+                {
+                    BlockList.Instance.AddButton(gameObject);
+                    WriteSelectedWord.text += buttonText.text;
+                }
+            }
+            else // 다른 색이면
+            {
+                Debug.Log("다른 색이네?");
+            }
+        }
     }
 
     public void DeleteSelectedBlockText() // 단어들이 쓰여진 곳 지워버리기
     {
         WriteSelectedWord.text = "";
-        BlockQueue.Instance.DequeueAllButton();
+        BlockList.Instance.PopAllButton();
     }
 }

@@ -5,7 +5,6 @@ using System.IO; // 저장 등 파일 관리를 위해
 
 public class GameData // json으로 저장할 클래스
 {
-    public bool first; // 오프닝 보여줄건지 체크 true: 보여줌, false: 안보여줌
     public bool last; // 엔딩 보여줄건지 체크 true: 보여줌, false: 안보여줌
     public int recentLevel; // 1: 숲, 2: 사막, 3: 바다, 4: 초원, 5: 우주, 각 레벨의 10번째 스테이지를 클리어하면 1 증가, 클리어해야 할 레벨
     public int recentStage; // 0~9 -> 1~10 스테이지, 클리어해야 할 스테이지
@@ -92,7 +91,6 @@ public class DataManager  : MonoBehaviour
     {
         // 새로운 게임 정보 생성 로직 예시
         GameData newGameData = new GameData();
-        newGameData.first = true;
         newGameData.last = true;
         newGameData.recentLevel = 1;
         newGameData.recentStage = 1;
@@ -130,8 +128,7 @@ public class DataManager  : MonoBehaviour
         // 기타 필드 갱신 로직도 여기에 작성
         switch(action)
         {
-            case 0: // 최초 플레이 시에만 다음 플레이에 오프닝 장면 보여줄건지
-                gameData.first=false;
+            case 0: 
                 break;
             case 1: // bgm 소리 크기
                 gameData.bgmVolume = SoundManager.Instance.musicSource.volume;
