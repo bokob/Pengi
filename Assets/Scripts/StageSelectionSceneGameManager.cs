@@ -50,12 +50,5 @@ public class StageSelectionSceneGameManager : MonoBehaviour // 스테이지 잠�
                 btns[i].image.color = new Color(0.5f,0.5f,0.5f); 
             }
         }
-
-        // 엔딩씬으로 넘어가기 위한 부분
-        if(DataManager.Instance.gameData.last==true && DataManager.Instance.gameData.spaceClear[9])
-        {
-            DataManager.Instance.UpdateGameSetData(3);
-            SceneManager.LoadScene("EndingScene");
-        }
     }
 }

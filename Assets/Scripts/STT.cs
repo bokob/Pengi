@@ -62,7 +62,7 @@ public class STT : MonoBehaviour
     private string filePath;
 
     public TextMeshProUGUI recognitionWord, selectedWord;
-    bool flag = false;
+    //bool flag = false;
     GameObject[] buttons;
 
     string sceneName;
@@ -370,7 +370,7 @@ public class STT : MonoBehaviour
             if(panelObject!=null)
             {
                 // textObj = panelObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
+                voiceRecognize.text = voiceRecognize.text.Replace(" ", ""); // 띄어쓰기 없애기
                 Debug.Log("음성 인식 결과: " + voiceRecognize.text);
                 recognitionWord.text = voiceRecognize.text;
             }
@@ -500,6 +500,14 @@ public class STT : MonoBehaviour
                     id = LoadWord_S.Instance.answerList[i].w_id;
             }
         }
+        else if(sceneName == "WrongPlayScene")
+        {
+            for(int i=0;i<LoadWord_W.Instance.answerList.Count;i++)
+            {
+                if(LoadWord_W.Instance.answerList[i].w_name == word)
+                    id = LoadWord_W.Instance.answerList[i].w_id;
+            }
+        }
 
         return id;
     }
@@ -525,15 +533,13 @@ public class STT : MonoBehaviour
         //gameResult.chance=1;
         //gameResult.completed="1";
 
-        gameResult.correct_words.Add(correctWord);
-        gameResult.wrong_words.Add(wrongWord);
         string jsonData = JsonUtility.ToJson(gameResult,true);
 
         Debug.Log("게임결과 보내기 시작");
         Debug.Log(jsonData);
         Debug.Log("이러한 내용을 보낼겁니다.");
 
-    //    StartCoroutine(Upload("http://43.202.24.176:8080/api/game", jsonData));
+       StartCoroutine(Upload("http://43.202.24.176:8080/api/game", jsonData));
     }
 
     IEnumerator Upload(string url, string json) // Post하기 위해 필요한 함수
