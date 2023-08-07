@@ -36,8 +36,16 @@ public class SuccessParticleCounter : MonoBehaviour
         waterBatch.SetActive(false);
         SoundManager.Instance.ToggleSFX();
         panel.SetActive(true);
-        DataManager.Instance.UpdateGameClear(LevelAndStageManager.Instance.currentLevel, LevelAndStageManager.Instance.currentStage);
-        STT.Instance.gameResult.completed="1";
-        STT.Instance.Send();
+
+        if(SceneManager.GetActiveScene().name == "DemoPlayScene")
+        {
+            DataManager.Instance.UpdateGameClear(1, 1);
+        }
+        else
+        {
+            DataManager.Instance.UpdateGameClear(LevelAndStageManager.Instance.currentLevel, LevelAndStageManager.Instance.currentStage);
+            STT.Instance.gameResult.completed="1";
+            STT.Instance.Send();
+        }
     }
 }

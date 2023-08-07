@@ -367,7 +367,8 @@ public class STT_Demo : MonoBehaviour
         Debug.Log("큐 비활성화 종료!");
         BlockList.Instance.PopAllButton(); // 리스트 비우기
 
-        SoundManager.Instance.PlaySFX("BreakBlock"); // '풍덩' 효과음
+        Debug.Log("풍덩!");
+        //SoundManager.Instance.PlaySFX("BreakBlock"); // '풍덩' 효과음
     }
 
     void ClearRecognitionAndSelectedText() // 모든 글자 비우기

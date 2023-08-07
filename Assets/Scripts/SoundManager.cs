@@ -134,6 +134,12 @@ public class SoundManager : MonoBehaviour
             musicSource.Play();
             currentSceneName = sceneName;
         }/* 추가로 특정 씬에 맞게 재생하게끔 여기에 추가 예정 */
+        else if(sceneName == "DemoPlayScene")
+        {
+            musicSource.clip = s.clip;
+            musicSource.Play();
+            currentSceneName = sceneName;
+        }
         else 
         {
             if(musicSource.clip!=null && musicSource.clip.Equals(defaultBGM)) // 만약 다른 씬인데 같은 bgm이면 중복재생 방지

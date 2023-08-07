@@ -8,16 +8,16 @@ public class SwitchGraphAndPhoneme : MonoBehaviour
     public void Prev()
     {
         ShowGraphAndPhoneme.Instance.PreviousObj();
-        //SoundManager.Instance.PlaySFX("Click");
+        SoundManager.Instance.PlaySFX("Click");
     }
     public void Next()
     {
         ShowGraphAndPhoneme.Instance.NextObj();
-        //SoundManager.Instance.PlaySFX("Click");
+        SoundManager.Instance.PlaySFX("Click");
     }
     public void GotoMainScene()
     {
         SceneManager.LoadScene("MainScene");
-        //SoundManager.Instance.PlaySFX("Click");
+        SoundManager.Instance.PlaySFX("Click");
     }
 }

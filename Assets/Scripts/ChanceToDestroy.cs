@@ -25,7 +25,7 @@ public class ChanceToDestroy : MonoBehaviour
         {
             chanceCount = 2;
         }
-        else if(sceneName == "SpacePlayScene" || sceneName == "WrongPlayScene")
+        else if(sceneName == "SpacePlayScene" || sceneName == "WrongPlayScene" || sceneName == "DemoPlayScene")
         {
             chanceCount = 3;
         }
@@ -80,5 +80,22 @@ public class ChanceToDestroy : MonoBehaviour
     public void Onccclick()
     {
         Debug.Log("눌리는뎁쇼?");
+    }
+
+    public void ChanceDemo() // 찬스는 틀린걸로 취급
+    {
+        GameObject[] buttonArray = BlockList.Instance.buttonList.ToArray(); // 리스트에 넣어놓은 버튼들을 인덱스로 접근하기 위해 배열로 바꾼다.
+
+        Debug.Log("리스트에 들어있는 버튼들 비활성화 시작!");
+        for(int i=0;i<buttonArray.Length;i++) // 전부 비활성화
+        {
+            Debug.Log(buttonArray[i].name + " 비활성화");
+            buttonArray[i].SetActive(false);
+        }
+        Debug.Log("리스트 비활성화 종료!");
+
+        showChanceCount.text = (int.Parse(showChanceCount.text)-1).ToString();
+
+        SoundManager.Instance.PlaySFX("BreakBlock"); // '풍덩' 효과음
     }
 }
