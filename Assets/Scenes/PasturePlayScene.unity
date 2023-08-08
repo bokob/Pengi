@@ -12819,8 +12819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3167882cfdf5e4a9b954fab49d7968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recognitionWord: {fileID: 0}
-  selectedWord: {fileID: 0}
+  recognitionWord: {fileID: 1576318669}
+  selectedWord: {fileID: 691914742}
   showChanceCount: {fileID: 273780266}
 --- !u!1 &1300461200
 GameObject:

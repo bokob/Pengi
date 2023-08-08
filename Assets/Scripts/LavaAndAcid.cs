@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class LavaAndAcid : MonoBehaviour
 {
-
     void Start()
     {
         //Destroy(this,delay); // 스크립트 해제
