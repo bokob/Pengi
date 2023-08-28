@@ -25,6 +25,7 @@ public class SwitchRecentStageSelection : MonoBehaviour // 깨야할 스테이�
                 break;
             default:
                 break;
-        }   
+        }
+        SoundManager.Instance.PlaySFX("Click");
     }
 }

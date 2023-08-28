@@ -27,6 +27,11 @@ public class StageButton : MonoBehaviour
 
         if(sceneName == "ForestStageSelectionScene")
         {
+            // if(gameObject.name=="1")
+            // {
+            //     SceneManager.LoadScene("DemoPlayScene");
+            //     return;
+            // }
             SceneManager.LoadScene("ForestPlayScene");
         }
         else if(sceneName == "DesertStageSelectionScene")

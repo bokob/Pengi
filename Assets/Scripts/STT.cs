@@ -403,7 +403,7 @@ public class STT : MonoBehaviour
                 Debug.Log("틀린 단어의 개수: " + gameResult.wrong_words.Count);
 
                 RemoveBlock(); // 해당 단어 들어있는 블록 비활성화
-                selectedWord.text = "성공"; // 이거 안해주면 중간에 브금 끊김
+                selectedWord.text = "Success!"; // 이거 안해주면 중간에 브금 끊김
                 Invoke("ClearRecognitionAndSelectedText", 2f); // 2초뒤에 인식, 선택 글씨 비우기
             }
             else // 오답

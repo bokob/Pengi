@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AccuracyScene.unity
     guid: 000f180378ddc424d91cb0aeb8383955
+  - enabled: 1
+    path: Assets/Scenes/DemoPlayScene.unity
+    guid: 433e84ae3badb964696e0b17c7d03ff4
   m_configObjects: {}

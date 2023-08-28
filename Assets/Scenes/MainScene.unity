@@ -693,6 +693,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7d7678db62b40f4428f40e41680f736d, type: 3}
   - name: EndingScene
     clip: {fileID: 8300000, guid: 646f527ba1c104049b8a78d4f1936368, type: 3}
+  - name: DemoPlayScene
+    clip: {fileID: 8300000, guid: 73c6512804b39aa4d824b9413c98b3f9, type: 3}
   sfxSounds:
   - name: BreakBlock
     clip: {fileID: 8300000, guid: 36b42d81101f05a418d25d0ef5487f44, type: 3}

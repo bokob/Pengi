@@ -29,7 +29,7 @@ public class WaterObject : MonoBehaviour
         else // 이상
         {
             //Debug.Log("켤거야");
-            audioSource.volume=1;
+            audioSource.volume = SoundManager.Instance.sfxSource.volume;
         }
     }
 
