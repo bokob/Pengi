@@ -27,3 +27,8 @@ Python
 Django
 - 4.2.3
 ```
+
+___  
+## 서버 및 DB  
+https://github.com/ICCAS2023Germany/Pengi_Server_Deploy_Django.git
+
