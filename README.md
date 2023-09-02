@@ -14,7 +14,12 @@ ___
 
 ## 단어 처리 로직  
 <img width="796" alt="단어저장되는과정" src="https://github.com/ICCAS2023Germany/Pengi/assets/85085804/d9e4a96d-5ea0-4578-8fec-61a5f27990a0">
-<img width="322" alt="오답판단로직" src="https://github.com/ICCAS2023Germany/Pengi/assets/85085804/794192ee-5aaa-4781-a9a1-8d737d970fc0">
+<img width="322" alt="오답판단로직" src="https://github.com/ICCAS2023Germany/Pengi/assets/85085804/794192ee-5aaa-4781-a9a1-8d737d970fc0">  
+
+___  
+## 구현 결과
+<img width="593" alt="게임 플레이 화면" src="https://github.com/ICCAS2023Germany/Pengi/assets/85085804/ff4f264b-1029-4328-a53d-564f739d1044">  
+
 ___  
 
 ## 의존성(Dependency)
